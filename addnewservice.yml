@@ -1,6 +1,6 @@
 ---
-- name: Hi K
-  hosts: myhost
+- name: Hi polo
+  hosts: localhost 
   tasks:
   - include_vars: ./newservicedetails.yml
   - name: create new service
@@ -8,6 +8,7 @@
       url: "{{url}}"
       method: "{{verb}}"
       body: "access_token={{access_token}}&name={{name}}&deployment_option={{deployment_option}}&backend_version={{backend_version}}&system_name={{system_name}}"
+      validate_certs: false
       return_content: yes
       status_code: "{{status_code}}"
     register: result
